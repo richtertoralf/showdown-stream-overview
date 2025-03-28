@@ -34,3 +34,9 @@ const youtubeIds = [
     "def456", // Table 2
     "ghi789"  // Table 3
 ];
+
+---
+## 🖼️ Screenshot
+
+![Stream Overview Screenshot](./screenshot.png)
+
