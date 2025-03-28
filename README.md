@@ -39,5 +39,5 @@ const youtubeIds = [
 
 ## 🖼️ Screenshot
 
-![Stream Overview Screenshot](./screenshot.png)
+![Stream Overview Screenshot](https://github.com/richtertoralf/showdown-stream-overview/blob/4727599543c7ea000b4a481175127d550bbb3665/Screenshot%202025-03-28%20182413.png)
 
