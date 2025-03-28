@@ -66,17 +66,20 @@
         }
 
         .stream {
-            position: relative;
-            padding-top: 56.25%;
-            /* 16:9 Ratio */
-            overflow: hidden;
             background: black;
-            /* falls Video nicht lädt */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
-        .stream iframe {
+        .stream-video {
+            position: relative;
+            padding-top: 56.25%;
+            /* 16:9 */
+            background: black;
+        }
+
+        .stream-video iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -86,16 +89,14 @@
         }
 
         .stream-title {
-            background-color: rgba(0, 0, 0, 0.7);
-            /* statt #333 */
+            background-color: #333;
             color: white;
-            padding: 10px;
+            padding: 8px;
             text-align: center;
             font-size: 16px;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
         }
 
         .stream:hover {
@@ -168,27 +169,30 @@
     </div>
 
     <script>
-        const youtubeIds = [
-            "4etZt1l2xDw", // Table 1
-            "FeAFpK-u1T4", // Table 2
-            "chVoU_eQzhY", // Table 3
-            "GEoQDJZgojc", // Table 4
-            "buzpJ4GUVfU", // Table 5
-            "fU5joxhrIXs"  // Table 6
+        const youtubeStreams = [
+            { id: "4etZt1l2xDw", title: "Table 1" },
+            { id: "FeAFpK-u1T4", title: "Table 2" },
+            { id: "chVoU_eQzhY", title: "Table 3" },
+            { id: "GEoQDJZgojc", title: "Table 4" },
+            { id: "buzpJ4GUVfU", title: "Table 5" },
+            { id: "fU5joxhrIXs", title: "Table 6" }
         ];
 
         const container = document.getElementById("streamContainer");
 
-        youtubeIds.forEach((id, index) => {
+        youtubeStreams.forEach((stream) => {
             const streamBox = document.createElement("div");
             streamBox.className = "stream";
             streamBox.innerHTML = `
-            <div class="stream-title">Table ${index + 1}</div>
-            <iframe src="https://www.youtube.com/embed/${id}" 
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-        `;
+                <div class="stream-video">
+                    <iframe src="https://www.youtube.com/embed/${stream.id}" 
+                       frameborder="0"
+                       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                       allowfullscreen></iframe>
+            </div>
+            <div class="stream-title">${stream.title}</div>
+            `;
+
             container.appendChild(streamBox);
         });
 
