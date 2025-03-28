@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Live video streams from the 9th BSC Prague Showdown Cup 2025 tables. Internal use for referees and staff. No commentary or audio description.">
+    <title>Prague Showdown Cup 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .sr-only {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 98%;
+            max-width: 1400px;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+
+        .header-row h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .subheading {
+            font-size: 18px;
+            color: #444;
+            text-align: center;
+        }
+
+        .clock {
+            font-size: 18px;
+            font-family: monospace;
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 98%;
+            /* vorher: 90% */
+            max-width: 1400px;
+            /* vorher: 1200px */
+            margin-bottom: 20px;
+        }
+
+        .stream {
+            position: relative;
+            padding-top: 56.25%;
+            /* 16:9 Ratio */
+            overflow: hidden;
+            background: black;
+            /* falls Video nicht lädt */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .stream iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .stream-title {
+            background-color: rgba(0, 0, 0, 0.7);
+            /* statt #333 */
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .stream:hover {
+            transform: scale(1.02);
+            transition: transform 0.2s ease;
+        }
+
+        .intro {
+            max-width: 1200px;
+            width: 95%;
+            font-size: 16px;
+            color: #333;
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding: 10px 0;
+            border-top: 1px solid #ccc;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header-row">
+        <h1>BSC Prague Showdown Cup 2025</h1>
+        <h2 class="subheading">Match Table Overview for Officials and Staff</h2>
+        <div class="clock" id="liveClock">00:00:00</div>
+    </div>
+
+    <p class="sr-only">
+        This page is intended for visual use only. Video streams contain no commentary or audio description.
+    </p>
+
+    <div class="container" id="streamContainer"></div>
+
+    <p class="intro">
+        This internal page provides live video streams from all match tables at the 9th BSC Prague Showdown Cup 2025.
+        It is intended for referees, jury members and VIP guests to monitor ongoing matches.
+        Please note that the videos do not include commentary or audio descriptions.
+    </p>
+
+    <div class="footer">
+        <a href="https://www.snowgames.live/legal-notice-impressum" target="_blank">Impressum</a>
+    </div>
+
+    <script>
+        const youtubeIds = [
+            "4etZt1l2xDw", // Table 1
+            "FeAFpK-u1T4", // Table 2
+            "chVoU_eQzhY", // Table 3
+            "GEoQDJZgojc", // Table 4
+            "buzpJ4GUVfU", // Table 5
+            "fU5joxhrIXs"  // Table 6
+        ];
+
+        const container = document.getElementById("streamContainer");
+
+        youtubeIds.forEach((id, index) => {
+            const streamBox = document.createElement("div");
+            streamBox.className = "stream";
+            streamBox.innerHTML = `
+            <div class="stream-title">Table ${index + 1}</div>
+            <iframe src="https://www.youtube.com/embed/${id}" 
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        `;
+            container.appendChild(streamBox);
+        });
+
+        function updateClock() {
+            const now = new Date();
+            const pad = (n) => n.toString().padStart(2, '0');
+            const timeStr = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+            document.getElementById('liveClock').textContent = timeStr;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial sofort aufrufen
+    </script>
+
+</body>
+
+</html>
