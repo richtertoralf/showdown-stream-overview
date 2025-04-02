@@ -29,11 +29,14 @@ Das Ziel: Eine interne Übersicht aller laufenden Matches – möglichst einfach
 Im Code findest du eine zentrale Stelle, an der du nur noch die YouTube-IDs ändern musst:
 
 ```javascript
-const youtubeIds = [
-    "abc123", // Table 1
-    "def456", // Table 2
-    "ghi789"  // Table 3
-];
+        const youtubeStreams = [
+            { id: "4etZt1l2xDw", title: "Table 1" },
+            { id: "FeAFpK-u1T4", title: "Table 2" },
+            { id: "chVoU_eQzhY", title: "Table 3" },
+            { id: "GEoQDJZgojc", title: "Table 4" },
+            { id: "buzpJ4GUVfU", title: "Table 5" },
+            { id: "fU5joxhrIXs", title: "Table 6" }
+        ];
 
 ```
 
