@@ -59,12 +59,12 @@ Im Code findest du eine zentrale Stelle, an der du nur noch die YouTube-IDs änd
 
 ```javascript
         const youtubeStreams = [
-            { id: "LWRiuhlMPgM", title: "Table 1" },
-            { id: "O7fwD_AWTQ8", title: "Table 2" },
-            { id: "oVaXhRaN8IY", title: "Table 3" },
-            { id: "TxsH5VWBsiM", title: "Table 4" },
-            { id: "Hu6Xmg-Qpw8", title: "Table 5" },
-            { id: "tAWcDQUUgRI", title: "Table 6" }
+            { id: "xxxxxxxxxxx", title: "Table 1" },
+            { id: "xxxxxxxxxxx", title: "Table 2" },
+            { id: "xxxxxxxxxxx", title: "Table 3" },
+            { id: "xxxxxxxxxxx", title: "Table 4" },
+            { id: "xxxxxxxxxxx", title: "Table 5" },
+            { id: "xxxxxxxxxxx", title: "Table 6" }
         ];
 
 ```
