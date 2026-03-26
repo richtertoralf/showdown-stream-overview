@@ -245,7 +245,7 @@
         window.onYouTubeIframeAPIReady = () => {
             youtubeStreams.forEach((s, i) => {
                 const player = new YT.Player(`yt_${i}`, {
-                    host: "https://www.youtube-nocookie.com",
+                    // host: "https://www.youtube-nocookie.com",
                     videoId: s.id,
                     playerVars: {
                         autoplay: 1,
