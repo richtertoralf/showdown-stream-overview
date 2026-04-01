@@ -1,20 +1,20 @@
 # Showdown Stream Overview
 
-**Livestream-Übersicht für den 9. BSC Prague Showdown Cup 2025 in Nymburk, Tschechien**
+**Livestream-Übersicht für den 9. und 10. BSC Prague Showdown Cup 2025 und 2026 in Nymburk, Tschechien**
 
 Diese minimalistische Web-Oberfläche zeigt alle Livestreams der Tische auf einer Seite – perfekt für Schiedsrichter, Jury und VIP-Gäste.  
-Kein Schnickschnack, aber eine laufende Uhr, klare Struktur und einfache Anpassung über eine Liste mit YouTube-IDs.
+Absichtlich simpel / einfache Anpassung über eine Liste mit YouTube-IDs.
 
 ---
 
-## 🏓 Hintergrund
+## Hintergrund
 
-Entstanden anlässlich des 9. BSC Prague Showdown Cups 2025.  
-Das Ziel: Eine interne Übersicht aller laufenden Matches – möglichst einfach, responsive und auch auf Mobilgeräten gut nutzbar.
+Entstanden anlässlich des 9. BSC Prague Showdown Cups 2025 und 2026 wieder verwendet.  
+Das Ziel: Eine interne Übersicht aller laufenden Matches – möglichst einfach, responsive und auch auf Mobilgeräten gut nutzbar. Gemacht für die Schiedsrichter als Übersicht. Nicht gemacht für eine große Anzahl an Zuschauern.
 
 ---
 
-## 🚀 Features
+## Features
 
 - Übersicht aller Spieltische per YouTube-Embed (3×2 Grid)
 - Live-Uhr in der Kopfzeile
@@ -35,7 +35,7 @@ Deshalb nutzt diese Version die **YouTube IFrame Player API**: stummes Autoplay 
 
 ---
 
-## ▶️ Lokal starten
+## Lokal starten
 
 Da diese Seite die **YouTube IFrame Player API** nutzt, funktioniert ein direktes Öffnen per Doppelklick (`file://…/index.html`) je nach Browser nicht zuverlässig (Origin/Embed-Sicherheitschecks).
 Starte die Seite daher lokal über einen kleinen Webserver:
@@ -53,7 +53,7 @@ Danach im Browser öffnen:
 http://localhost:8000/index.html
 ```
 
-## 🔧 Konfiguration
+## Konfiguration
 
 Im Code findest du eine zentrale Stelle, an der du nur noch die YouTube-IDs ändern musst:
 
@@ -69,7 +69,7 @@ Im Code findest du eine zentrale Stelle, an der du nur noch die YouTube-IDs änd
 
 ```
 
-## 🖼️ Screenshot
+## Screenshot
 
 ![Stream Overview Screenshot](./Screenshot.png)
 
